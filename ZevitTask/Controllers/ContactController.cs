@@ -25,52 +25,56 @@ namespace ZevitTask.Controllers
 
         [HttpGet("{id}")]
 
-        public async Task<ActionResult<Contact>> Get(int id)
+        public async Task<ActionResult<Contact>> Get(Guid? id)
         {
-            Contact hero = await _context.Contacts.AsNoTracking().SingleAsync(x=>x.Id==id);
-            if (hero == null)
-                return BadRequest("Hero not found");
-            return Ok(hero);
+            Contact contact = await _context.Contacts.AsNoTracking().SingleAsync(x=>x.Id.Equals(id));
+            if (contact == null)
+                return BadRequest("Contact not found");
+            return Ok(contact);
         }
 
 
         [HttpPost]
 
-        public async Task<IActionResult> AddHero(Contact hero)
+        public async Task<IActionResult> AddHero(Contact contact)
         {
-            _context.Contacts.Add(hero);
+            var dbcontact = await _context.Contacts.FindAsync(contact.Id);
+           
+            if (dbcontact!=null)
+                return BadRequest($"Contact with the given Id({contact.Id}) already exists");
+
+            _context.Contacts.Add(contact);
             await _context.SaveChangesAsync();
-            
-            return Ok(hero);
+            return Ok(contact);
         }
 
         [HttpPut]
-        public async Task<ActionResult<Contact>> UpdateHero(Contact request)
+        
+        public async Task<ActionResult<Contact>> UpdateContact(Contact request)
         {
-            var dbhero = await _context.Contacts.FindAsync(request.Id);
-            if (dbhero == null)
-                return BadRequest("Hero not found");
+            var dbcontact = await _context.Contacts.FindAsync(request.Id);
+            if (dbcontact == null)
+                return BadRequest("Contact not found");
 
-            dbhero.FullName = request.FullName;
-            dbhero.EmailAddress = request.EmailAddress;
-            dbhero.PhoneNumber = request.PhoneNumber;
-            dbhero.PhysicalAddress=request.PhysicalAddress;
+            dbcontact.FullName = request.FullName;
+            dbcontact.EmailAddress = request.EmailAddress;
+            dbcontact.PhoneNumber = request.PhoneNumber;
+            dbcontact.PhysicalAddress=request.PhysicalAddress;
            
             await _context.SaveChangesAsync();  
-            return Ok(dbhero);
+            return Ok(dbcontact);
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<List<Contact>>> Delete(int id)
+        public async Task<ActionResult<List<Contact>>> Delete(Guid? id)
         {
-            var hero = await _context.Contacts.FindAsync(id);
-            if (hero == null)
-                return BadRequest("Hero not found");
+            var contact = await _context.Contacts.FindAsync(id);
+            if (contact == null)
+                return BadRequest("Contact not found");
 
-            _context.Contacts.Remove(hero);
+            _context.Contacts.Remove(contact);
             await _context.SaveChangesAsync();
-           
-            return Ok(hero);
+            return Ok(contact);
         }
 
 
