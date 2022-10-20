@@ -5,9 +5,10 @@ namespace ZevitTask.Controllers
 {
     [Route("[controller]")]
     [ApiController]
+    
     public class ContactController : ControllerBase
     {
-       
+        
         private readonly DataContext _context;
 
         public ContactController(DataContext context)
@@ -36,7 +37,7 @@ namespace ZevitTask.Controllers
 
         [HttpPost]
 
-        public async Task<IActionResult> AddHero(Contact contact)
+        public async Task<IActionResult> AddContact(Contact contact)
         {
             var dbcontact = await _context.Contacts.FindAsync(contact.Id);
            
@@ -66,6 +67,7 @@ namespace ZevitTask.Controllers
         }
 
         [HttpDelete("{id}")]
+        
         public async Task<ActionResult<List<Contact>>> Delete(Guid? id)
         {
             var contact = await _context.Contacts.FindAsync(id);

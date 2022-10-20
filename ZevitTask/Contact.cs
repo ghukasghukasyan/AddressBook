@@ -7,7 +7,7 @@ namespace ZevitTask
         public Guid Id { get; set; }
         
         [Required (ErrorMessage= "Full Name field is Required")]
-        [StringLength(20,MinimumLength =5)]
+        [StringLength(20,MinimumLength = 5)]
         
         public string FullName { get; set; } = string.Empty;
 
