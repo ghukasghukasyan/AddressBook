@@ -78,7 +78,5 @@ namespace ZevitTask.Controllers
             await _context.SaveChangesAsync();
             return Ok(contact);
         }
-
-
     }
 }
