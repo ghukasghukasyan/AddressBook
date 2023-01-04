@@ -3,7 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZevitTask", "ZevitTask\ZevitTask.csproj", "{F4E98437-A97A-4275-817E-96E8AD1A48D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZevitTask", "ZevitTask\ZevitTask.csproj", "{F4E98437-A97A-4275-817E-96E8AD1A48D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{1A973425-99CB-43AF-B545-37C4938BBC90}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{BA85A37B-58CF-486F-8F2C-BC0FBD6A6EF4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{A2E673DA-79D6-43C3-9B58-7013CB9B28A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zevit.Application", "Contact.Application\Zevit.Application.csproj", "{24CF78D6-38E8-4723-958D-8477AD35B2B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zevit.Infrastructure", "Contact.Infrastructure\Zevit.Infrastructure.csproj", "{E4DB483C-FEA1-47B1-B196-C4437F064073}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zevit.Domain", "Contact.Domain\Zevit.Domain.csproj", "{6C46A1F8-C22C-4896-8212-DB1940AF8059}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +27,27 @@ Global
 		{F4E98437-A97A-4275-817E-96E8AD1A48D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4E98437-A97A-4275-817E-96E8AD1A48D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4E98437-A97A-4275-817E-96E8AD1A48D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24CF78D6-38E8-4723-958D-8477AD35B2B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24CF78D6-38E8-4723-958D-8477AD35B2B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24CF78D6-38E8-4723-958D-8477AD35B2B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24CF78D6-38E8-4723-958D-8477AD35B2B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4DB483C-FEA1-47B1-B196-C4437F064073}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4DB483C-FEA1-47B1-B196-C4437F064073}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4DB483C-FEA1-47B1-B196-C4437F064073}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4DB483C-FEA1-47B1-B196-C4437F064073}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C46A1F8-C22C-4896-8212-DB1940AF8059}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C46A1F8-C22C-4896-8212-DB1940AF8059}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C46A1F8-C22C-4896-8212-DB1940AF8059}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C46A1F8-C22C-4896-8212-DB1940AF8059}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F4E98437-A97A-4275-817E-96E8AD1A48D2} = {1A973425-99CB-43AF-B545-37C4938BBC90}
+		{24CF78D6-38E8-4723-958D-8477AD35B2B6} = {1A973425-99CB-43AF-B545-37C4938BBC90}
+		{E4DB483C-FEA1-47B1-B196-C4437F064073} = {A2E673DA-79D6-43C3-9B58-7013CB9B28A4}
+		{6C46A1F8-C22C-4896-8212-DB1940AF8059} = {BA85A37B-58CF-486F-8F2C-BC0FBD6A6EF4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E3A6BE2B-207A-457C-B712-95A42276B3C4}

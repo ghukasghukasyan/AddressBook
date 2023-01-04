@@ -1,4 +1,8 @@
-﻿namespace ZevitTask.Repositories
+﻿
+
+namespace ZevitTask.Repositories
+
+
 {
     public interface IContactRepository
     {

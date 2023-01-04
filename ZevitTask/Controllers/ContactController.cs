@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ZevitTask.DTOs;
+using ZevitTask.Queries.Contacts;
 
 namespace ZevitTask.Controllers
 {
@@ -8,19 +11,24 @@ namespace ZevitTask.Controllers
     
     public class ContactController : ControllerBase
     {
-        
+        private readonly IMediator _mediator;
         private readonly DataContext _context;
 
-        public ContactController(DataContext context)
+        public ContactController(IMediator mediator)
         {
-            _context = context;
+            _mediator = mediator;
         }
        
         [HttpGet]
 
-        public async Task<IActionResult> Get()
+        public async Task<ActionResult<IReadOnlyList<ContactDTO>>> Get(
+            [FromQuery] string name,
+            [FromQuery] int? skip,
+            [FromQuery] int? take)
         {
-            return Ok(await _context.Contacts.AsNoTracking().ToListAsync());
+            var result = await _mediator.Send(new GetContactQuery(name, skip, take));
+
+            return Ok(result);
         }
 
 

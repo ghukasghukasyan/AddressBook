@@ -1,10 +1,15 @@
 global using ZevitTask.Data;
 global using Microsoft.EntityFrameworkCore;
-
+using MediatR;
+using ZevitTask.Behaviours;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
+
+builder.Services.AddMediatR(typeof(Program));
 builder.Services.AddControllers();
+
+builder.Services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(PrintHelloBehaviour<,>));
 
 builder.Services.AddDbContext<DataContext>(options =>
 {
